@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.crowdfunding.dao.TicketMapper" >
+  <resultMap id="BaseResultMap" type="com.atguigu.crowdfunding.bean.Ticket" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="memberid" property="memberid" jdbcType="INTEGER" />
+    <result column="piid" property="piid" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="authcode" property="authcode" jdbcType="CHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.atguigu.crowdfunding.bean.Ticket" >
+    insert into t_ticket (memberid, piid, status, 
+      authcode)
+    values (#{memberid,jdbcType=INTEGER}, #{piid,jdbcType=CHAR}, #{status,jdbcType=CHAR}, 
+      #{authcode,jdbcType=CHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select memberid, piid, status, authcode,id
+    from t_ticket
+  </select>
+  <select id="selectByMember" resultMap="BaseResultMap" parameterType="member">
+    select memberid, piid, status, authcode,id
+    from t_ticket where memberid=#{id} order by id desc
+  </select>
+  <update id="updateStatus" parameterType="ticket">
+  	update t_ticket set status=#{status} where id=#{id}
+  </update>
+  <select id="selectByPIID" resultType="ticket">
+  	select * from t_ticket where piid=#{piid}
+  </select>
+  <update id="updateStatusByPiid" parameterType="ticket">
+  	update t_ticket set status=#{status} where piid=#{piid}
+  </update>
+</mapper>
