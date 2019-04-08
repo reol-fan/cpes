@@ -1,0 +1,6 @@
+DROP TABLE `cpes`.`act_ge_property`,`cpes`.`act_hi_attachment`,`cpes`.`act_hi_comment`,`cpes`.`act_hi_detail`,
+`cpes`.`act_hi_identitylink`,`cpes`.`act_hi_procinst`,`cpes`.`act_hi_taskinst`,`cpes`.`act_hi_varinst`,`cpes`.`act_id_info`,
+`cpes`.`act_id_membership`,`cpes`.`act_id_user`,`cpes`.`act_re_model`,`cpes`.`act_ru_event_subscr`,`cpes`.`act_hi_actinst`,
+`cpes`.`act_ru_identitylink`,`cpes`.`act_ru_job`,`cpes`.`act_ru_task`,`cpes`.`act_ru_variable`;
+DROP TABLE `cpes`.`act_ge_bytearray`,`cpes`.`act_id_group`,`cpes`.`act_re_deployment`,`cpes`.`act_ru_execution`;
+DROP TABLE `cpes`.`act_re_procdef`;
